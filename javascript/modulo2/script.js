@@ -44,7 +44,7 @@ function trocarCor(){
     }
 }
 
-//Tipos de dados Aula 7
+//Aula 7 - Tipos de dados 
 var nome = "Tiago Rodrigues";//String
 console.log(typeof nome);
 var idade = 90;//Number
@@ -58,20 +58,62 @@ console.log(typeof diplomas);
 var pessoa = {nome: 'Tiago', idade: 90, altura:1.70};//Object
 console.log(typeof pessoa);
 
-//Comentários Aula 8
+//Aula 8 - Comentários 
 //Comentário de uma linha...
 /** Multiplas linhas 
  * usado para documentação, ou explicação mais detalhada.
 */
 
-//Funções Aula 8
+//Aulas 9 e 10 - Funções
 function minhaFunção(param1, param2){//início da função
     //Corpo da função
     let retorno = param1+param2;
     return retorno;
 }//final da função
-
 function alterarTitulo(titulo){
     document.getElementById("titulo").innerHTML=titulo;
 }
 
+//Aula 11 - Manipulando atributos
+function trocarImagem($fileName, $alt){
+    document.querySelector('.imagem').setAttribute('src', 'images/'+$fileName+'.jpg');
+    document.querySelector('.imagem').setAttribute('alt', $alt);
+}
+function exibeNomeAnimal(){
+    let $animal = document.querySelector('.imagem').getAttribute('alt');
+    alert('O animal é um: '+$animal);
+}
+
+//Aula 12 - Dimensões dos elementos
+document.querySelector('.texto').offsetWidth;//Tamanho do elemento com padding+border+margim+scroll
+document.querySelector('.texto').offsetHeight;
+document.querySelector('.texto').clientWidth;//Tamanho sem contar borda e scroll
+document.querySelector('.texto').clientHeight;
+document.querySelector('.texto').scrollWidth;//Tamanho real do texto, mesmo se estiver compacto com barra de rolagem
+document.querySelector('.texto').scrollHeight;
+document.querySelector('.texto').scrollTop;//Posição atual em px da barra de rolagem Horizontal do elemento
+document.querySelector('.texto').scrollLeft;//Posição atual em px da barra de rolagem Vertical do elemento
+window.scrollY;//Posição atual em px da barra de rolagem Horizontal da Página
+window.scrollY;//Posição atual em px da barra de rolagem Vertical da Página
+
+//Aula 13 - Scroll suave
+function subirTela(){
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' //Scroll suave
+    });
+}
+
+
+function verificaBotaoScroll() {
+    let posicaoy = window.pageYOffset;
+    if (posicaoy > 100)
+    document.querySelector('.botaoScrollTopo').style.display = 'block';
+    
+    else
+    document.querySelector('.botaoScrollTopo').style.display = 'none';
+}
+
+document.addEventListener("scroll", verificaBotaoScroll);
+
+//setInterval(verificaBotaoScroll, 500);//executa função a cada meio segundo
